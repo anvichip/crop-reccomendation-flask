@@ -13,13 +13,16 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
 
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
+    int_features = [float(x) for x in request.form.values()]
+    #final_features = [np.array(int_features)]
+    final_features = [int_features]
+    print(final_features)
     prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+    output = prediction[0]
+    print(output)
 
-    return render_template('index.html', prediction_text='Sales should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='Ideal Crop to grow is {}'.format(output))
 
 @app.route('/results',methods=['POST'])
 def results():

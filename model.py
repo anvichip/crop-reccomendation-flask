@@ -26,7 +26,7 @@ df = pd.read_csv('Crop_recommendation.csv')
 
 #df
 
-df.info()
+#df.info()
 
 df.dropna()
 
@@ -37,7 +37,7 @@ y = df['label']
 
 #y.head()
 
-print(y.unique())
+#print(y.unique())
 
 # normalize the features
 scaler = StandardScaler()
@@ -63,21 +63,22 @@ print("Accuracy:", accuracy)
 #X_test.head()
 
 # Example prediction
-x = 1
-test_sample = X_test.iloc[x, :].values.reshape(1, -1)
+#x = 1
+#test_sample = X_test.iloc[x, :].values.reshape(1, -1)
 #test_sample = X_test[x].reshape(1,-1)
-predicted_class = mlp.predict(test_sample)
-print(test_sample)
+#predicted_class = mlp.predict(test_sample)
+#print(test_sample)
 # print("Predicted class for test sample:", predicted_class)
 
-print(df.iloc[809])
+print(df.iloc[709])
 
 # Make predictions on new data
-new_data = [[85, 58, 41, 21.770462, 80.319644, 7.038096, 226.655537]]
+#new_data = [[85, 58, 41, 21.770462, 80.319644, 7.038096, 226.655537]]
+new_data = [[50, 74, 17, 27.100533, 63.360856, 6.540821, 73.849499]]
+print("data type pf input" + str(type(new_data)))
 predictions = mlp.predict(new_data)
 print("Predictions:", predictions)
 
 pickle.dump(mlp, open('model.pkl','wb'))
 
 model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[4, 300, 500]]))

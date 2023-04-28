@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Deployment Tutorial 1</title>
+  <title>Crop Reccomendation</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -11,20 +11,25 @@
   
 </head>
 
-<body style="background: #000;">
+<body style="background: rgb(0, 0, 0);">
+<img src="static\css\Background_image.png" class = "image-back" width="500" height="500">
  <div class="login">
-	<h1>Sales Forecasting</h1>
-
+	<h1>Crop Reccomendation</h1>
+  
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="rate" placeholder="rate" required="required" />
-        <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
-		<input type="text" name="sales in second month" placeholder="sales in second month" required="required" />
+    	<input type="text" name="Nitrogen" placeholder="Nitrogen" required="required" />
+        <input type="text" name="Phosphorous" placeholder="Phosphorous" required="required" />
+		<input type="text" name="Pottasium" placeholder="Pottasium" required="required" />
+        <input type="text" name="Temperature" placeholder="Temperature" required="required" />
+        <input type="text" name="Humidity" placeholder="Humidity" required="required" />
+        <input type="text" name="pH" placeholder="pH" required="required" />
+        <input type="text" name="Rainfall" placeholder="Rainfall" required="required" />
 
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict sales in third month</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Ideal Crop</button>
     </form>
-
+   
    <br>
    <br>
    {{ prediction_text }}
